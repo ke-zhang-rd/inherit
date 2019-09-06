@@ -21,10 +21,10 @@ class Creator:
 
         self.names = self.s.split('(')
         f = open("src.py", "w")
-        body = f"class {self.names[-1]}:\n" \
-               "\n" \
-               "    def __init__(self):\n" \
-               "        pass\n" \
+        body = f"class {self.names[-1]}:\n"\
+               "\n"\
+               "    def __init__(self):\n"\
+               "        pass\n"\
                "\n\n"
         f.write(body)
         for c, p in zip(self.names[-2::-1], self.names[:0:-1]):
