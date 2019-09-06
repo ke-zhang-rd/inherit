@@ -2,8 +2,9 @@ import argparse
 
 
 parser = argparse.ArgumentParser(description='Process a string.')
-parser.add_argument('-s', action = 'store', dest = 's')
+parser.add_argument('-s', action='store', dest='s')
 args = parser.parse_args()
+
 
 class Creator:
 
@@ -20,13 +21,13 @@ class Creator:
 
         self.names = self.s.split('(')
         f = open("src.py", "w")
-        body = f"class {self.names[-1]}:\n" +\
-                "\n" +\
-                "    def __init__(self):\n" +\
-                "        pass\n" +\
-                "\n\n"
+        body = f"class {self.names[-1]}:\n" \
+               "\n" \
+               "    def __init__(self):\n" \
+               "        pass\n" \
+               "\n\n"
         f.write(body)
-        for c,p in zip(self.names[-2::-1], self.names[:0:-1]):
+        for c, p in zip(self.names[-2::-1], self.names[:0:-1]):
             body = f"class {c}({p}):\n" +\
                     "\n" +\
                     "    def __init__(self):\n" +\
