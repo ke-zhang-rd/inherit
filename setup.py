@@ -1,7 +1,12 @@
 from setuptools import setup
 
 setup(name='inherit',
-      version='0.0.1',
+      entry_points={
+        'console_scripts': [
+            'inherit=inherit.inherit:main',
+        ],
+      },
+      version='0.0.3',
       description='',
       url='https://github.com/ke-zhang-rd/inherit.git',
       author='Ke Zhang',
