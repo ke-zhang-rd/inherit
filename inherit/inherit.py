@@ -16,13 +16,23 @@ class Constructor:
     def check_legal(self):
         return True
 
+    def check_c3(self):
+        return True
+
     def output(self):
         if not self.check_legal():
             return False
 
-        self.names = self.s.split('(')
-        self.writer(f'{self.names[-1]}', '')
-        for c, p in zip(self.names[-2::-1], self.names[:0:-1]):
+        if not self.check_c3():
+            return False
+
+        for expression in self.s.split(' '):
+            self.expression_writer(expression)
+
+    def expression_writer(self, expression):
+        names = expression.split('(')
+        self.writer(f'{names[-1]}', '')
+        for c, p in zip(names[-2::-1], names[:0:-1]):
             self.writer(f'{c}({p})', '')
 
     def writer(self, class_line, paras_line):
